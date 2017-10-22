@@ -79,9 +79,7 @@ if(preg_match("/([<%\$#\*|>]+)/", $username))
        error('Username already in use!');
     }
 	
-	
-	 
-	   $password = md5($password);
+   $password = md5($password);
 
    require_once 'recaptchalib.php';
   $privatekey = "6LeaXSITAAAAAPJMKEsZPUS07yhrT41s0mPwiSvJ";
@@ -95,16 +93,9 @@ if(preg_match("/([<%\$#\*|>]+)/", $username))
          "(reCAPTCHA said: " . $resp->error . ")");
      } else {
        $query = $db->prepare("INSERT INTO users (`username`,`email`, `password`)VALUES (?, ?, ?)");
-	   $query->bind_param("sss", $username, $email, $password);
-	   $query->execute();
-	   $query->close();
-	   
-	$queryz = $db->prepare("INSERT INTO igloos (`ID`, `username`) VALUES (?, ?)");
-	$queryz->bind_param("sss", $que, $username);
-    $que->insert_id;   
-    $queryz->execute();
-	$queryz->close();
-	$db->close();
+       $query->bind_param("sss", $username, $email, $password);
+       $query->execute();
+       $query->close();
 }	   
        if($query) {
           echo "Thank You, your username is $username and your password is $password2";
@@ -119,7 +110,7 @@ if(preg_match("/([<%\$#\*|>]+)/", $username))
 <body>
 <link rel="stylesheet" href="css/style.css">
 </body>		
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form method="post" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
 <fieldset>
 <img src="http://putyourlegohere">
 <tr>
