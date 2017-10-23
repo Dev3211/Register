@@ -115,11 +115,11 @@ if(preg_match("/([<%\$#\*|>]+)/", $username))
 <img src="http://putyourlegohere">
 <tr>
 <label for="username">Username</label></div></td>
-<td><input name="username" type="username" class="input" size="25" 
+<td><input name="username" type="text" class="input" size="25" 
 </tr>
 <tr>
 <label for="email">Email</label></div></td>
-<td><input name="email" type="email" class="input" size="25" 
+<td><input name="email" type="text" class="input" size="25" 
 </tr>
 <tr>
 <label for="password">Password</label></div></td>
